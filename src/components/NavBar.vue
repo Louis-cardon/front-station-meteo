@@ -11,26 +11,28 @@
         <v-img src="weatherLogo.png" width="50px" height="50px"/>
       </router-link>
 
-      <v-toolbar-title>Station Météo</v-toolbar-title>
+      <router-link to="/">
+        <v-toolbar-title>Météo DI21</v-toolbar-title>
+      </router-link>
 
       <v-spacer></v-spacer>
 
       <router-link to="/">
-      <v-btn icon>
-        <v-icon>mdi-home</v-icon>
-      </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-home</v-icon>
+        </v-btn>
       </router-link>
 
       <router-link to="/connexion">
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
       </router-link>
 
       <router-link to="/home">
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
       </router-link>
 
       <router-link to="/connexion">
@@ -61,6 +63,6 @@ export default {
 <style scoped>
 a
 {
-text-decoration: none;
+  text-decoration: none;
 }
 </style>
