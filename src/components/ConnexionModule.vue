@@ -10,7 +10,7 @@
             <v-col>
               <v-row>
                 <v-spacer></v-spacer>
-                <v-btn class="ma-2" v-if="visibility === true" outlined>Connexion</v-btn>
+                <v-btn class="ma-2" v-if="visibility === true" outlined  v-on:click="$store.dispatch('connect')">Connexion</v-btn>
                 <v-btn class="ma-2" v-if="visibility === false" outlined>Créer un compte</v-btn>
                 <v-spacer></v-spacer>
               </v-row>
