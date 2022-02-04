@@ -1,6 +1,6 @@
 <template>
     <v-container class="mt-5">
-        <connexion-module></connexion-module>
+        <connexion-module v-if="UserConnecte === 'False'"></connexion-module>
     </v-container>
 </template>
 
