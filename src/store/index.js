@@ -8,11 +8,13 @@ export default new Vuex.Store({
   state: {
     connected: false,
     userInfo: [],
-    weatherJson: []
+    weatherJson: [],
+    ListValue: []
   },
   getters:{
     connected: state => state.connected,
-    weatherJson: state => state.weatherJson
+    weatherJson: state => state.weatherJson,
+    ListValue: state => state.ListValue
   },
   mutations: {
     setConnected(state, bool) {
@@ -20,6 +22,9 @@ export default new Vuex.Store({
     },
     setWeather(state, weatherJson) {
       state.weatherJson = weatherJson
+    },
+    setValue(state, ListValue){
+      state.ListValue = ListValue
     }
   },
   actions: {
@@ -30,6 +35,11 @@ export default new Vuex.Store({
     },
     async connect(state) {
       state.commit('setConnected', true)
+    },
+    async getValueMeteo(state){
+      const ListValue = await axios.get("http://192.168.147.94:5001/releve")
+      console.log(ListValue.data)
+      state.commit('setValue',ListValue.data)
     }
   },
   modules: {

@@ -64,6 +64,7 @@
   },
     mounted() {
       this.$store.dispatch('getmeteo', this.ville)
+      this.$store.dispatch('getValueMeteo')
     }
   }
 
