@@ -15,14 +15,12 @@
                 <v-list-item-title class="text-h5 mb-1">
                   Meteo
                 </v-list-item-title>
-                <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+                <v-list-item-subtitle>{{$store.getters.weatherJson.description}}</v-list-item-subtitle>
               </v-list-item-content>
 
-              <v-list-item-avatar
-                  tile
-                  size="80"
-                  color="grey"
-              ></v-list-item-avatar>
+              <v-list-item-avatar width="100px" height="100px">
+                  <v-img :src="'http://openweathermap.org/img/wn/' + $store.getters.weatherJson.icon + '@2x.png'"  width="100px" height="100px"></v-img>
+              </v-list-item-avatar>
             </v-list-item>
             <v-card-actions>
               <v-col>
@@ -32,6 +30,7 @@
                       outlined
                       rounded
                       text
+                      @click="$store.dispatch('getmeteo',ville)"
                   >
                     Recherche
                   </v-btn>
@@ -61,9 +60,11 @@
     data() {
       return {
         ville: 'Paris',
-        apimeteoville = "http://api.openweathermap.org/data/2.5/weather? q=" + str(this.ville) + " &appid=9def32b346e03faf0e077a943a7e8bde&lang=fr",
+      }
+  },
+    mounted() {
+      this.$store.dispatch('getmeteo', this.ville)
     }
-  }
   }
 
 </script>
